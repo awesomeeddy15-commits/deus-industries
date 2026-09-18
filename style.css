@@ -1077,3 +1077,77 @@ h1 span {
     padding: 100px 0;
   }
 }
+/* =========================
+   RESPONSIVE AUDIT & HOTFIXES
+========================= */
+
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Fluid type safety for mobile screens */
+@media (max-width: 600px) {
+  /* Prevent large editorial titles from overflowing small widths */
+  .page-hero h1,
+  .inner-page h1,
+  .case-hero h1 {
+    font-size: clamp(48px, 14vw, 72px) !important;
+    letter-spacing: -2px !important;
+    word-break: break-word;
+  }
+
+  .contact-page h1 {
+    font-size: clamp(42px, 13vw, 68px) !important;
+    letter-spacing: -2px !important;
+  }
+
+  .services-cta h2,
+  .case-cta h2 {
+    font-size: clamp(38px, 11vw, 55px) !important;
+    line-height: 0.95 !important;
+  }
+
+  /* Stabilize Sticky Glass Navbar on iOS Safari */
+  .navbar {
+    width: calc(100% - 32px) !important;
+    left: 16px;
+    right: 16px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Prevent subpixel gap glitches on mobile work cards */
+  .work-grid {
+    gap: 12px !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .work-card {
+    border: 1px solid #292a2e;
+    min-height: 260px !important;
+  }
+
+  /* Improve touch targets for close buttons */
+  .close-btn,
+  .search-close-btn {
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ensure case study hero and text scale neatly */
+  .case-hero {
+    min-height: auto !important;
+    padding: 60px 0 40px !important;
+  }
+
+  .case-details {
+    padding: 50px 0 !important;
+  }
+}
