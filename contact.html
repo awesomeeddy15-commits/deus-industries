@@ -10,44 +10,95 @@
 <body>
 
   <header class="navbar">
-    <a href="index.html" class="logo"><img src="images/deus-logo.png" alt="DEUS Industries"></a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a href="index.html" class="logo">
+      <img src="images/deus-logo.png" alt="DEUS Industries">
+    </a>
+
+    <div class="nav-actions">
+      <button class="search-btn" id="searchBtn">SEARCH</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
+  <!-- NAVIGATION OVERLAY -->
   <div class="menu-overlay" id="menuOverlay">
     <div class="menu-header">
-      <a href="index.html" class="logo"><img src="images/deus-logo.png" alt="DEUS Industries"></a>
+      <a href="index.html" class="logo">
+        <img src="images/deus-logo.png" alt="DEUS Industries">
+      </a>
       <button class="close-btn" id="closeBtn">×</button>
     </div>
 
     <nav class="menu-links">
-      <a href="index.html"><span>Home</span> </a>
-      <a href="services.html"><span>Services</span> </a>
-      <a href="work.html"><span>Work</span> </a>
-      <a href="products.html"><span>Products</span> </a>
-      <a href="labs.html"><span>Deus Labs</span> </a>
-      <a href="about.html"><span>About</span> </a>
-      <a href="contact.html"><span>Contact</span> </a>
+      <a href="index.html"><span>Home</span></a>
+      <a href="services.html"><span>Services</span></a>
+      <a href="work.html"><span>Work</span></a>
+      <a href="products.html"><span>Products</span></a>
+      <a href="labs.html"><span>Deus Labs</span></a>
+      <a href="about.html"><span>About</span></a>
+      <a href="contact.html"><span>Contact</span></a>
     </nav>
 
     <div class="menu-footer">
       <p>BUILDING BRANDS, BUSINESSES<br>AND DIGITAL SOLUTIONS FOR THE FUTURE.</p>
-      <a href="contact.html" class="start-project">START A PROJECT →</a>
+      <a href="#" class="start-project open-modal-btn">START A PROJECT →</a>
     </div>
   </div>
 
+  <!-- CONTACT PAGE HERO -->
   <main class="contact-page">
-    <p class="page-label">DEUS INDUSTRIES / START A PROJECT</p>
-
+    <p class="page-label">DEUS INDUSTRIES / ENGAGE</p>
     <h1>
       LET'S BUILD<br>
-      WHAT'S <span>NEXT.</span>
+      SOMETHING <span>ICONIC.</span>
     </h1>
-
-    <a class="contact-link" href="mailto:hello@deusindustries.ng">
-      hello@deusindustries.ng →
-    </a>
+    <button class="gold-button open-modal-btn" style="border: none; cursor: pointer; align-self: flex-start;">
+      START A PROJECT →
+    </button>
   </main>
+
+  <!-- INTERACTIVE MODAL OVERLAY -->
+  <div class="contact-modal-overlay" id="contactModal">
+    <div class="contact-modal-card">
+      <div class="modal-card-header">
+        <h3>Start an Inquiry</h3>
+        <button class="modal-close-btn" id="modalCloseBtn">×</button>
+      </div>
+      <p class="modal-subtitle">Tell us about your brand, software, or next deployment.</p>
+
+      <form id="projectInquiryForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <div class="form-group">
+          <label for="clientName">Full Name</label>
+          <input type="text" id="clientName" name="name" placeholder="Alexander Wright" required>
+        </div>
+
+        <div class="form-group">
+          <label for="clientContact">Email or WhatsApp Number</label>
+          <input type="text" id="clientContact" name="contact" placeholder="e.g. alex@studio.com or +234..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="serviceType">Service Required</label>
+          <select id="serviceType" name="service" required>
+            <option value="Brand Architecture & Identity">Brand Architecture & Identity</option>
+            <option value="Full-Stack Web Engineering">Full-Stack Web Engineering</option>
+            <option value="AI Automation & Custom Systems">AI Automation & Custom Systems</option>
+            <option value="Digital Growth & Art Direction">Digital Growth & Art Direction</option>
+            <option value="Other / Deus Labs Collaboration">Other / Deus Labs Collaboration</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="projectBrief">Brief Overview (Optional)</label>
+          <textarea id="projectBrief" name="message" rows="3" placeholder="Goals, scope, timeline..."></textarea>
+        </div>
+
+        <button type="submit" class="modal-submit-btn">Transmit Inquiry →</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

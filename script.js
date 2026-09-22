@@ -124,63 +124,29 @@ if (searchInput && searchResults) {
   });
 }
 // =========================
-// SCROLL REVEAL OBSERVER
+// CONTACT MODAL HANDLER
 // =========================
-const revealElements = document.querySelectorAll(
-  ".service-item, .work-card, .about-grid, .coming-soon, .labs-statement, .case-details, .case-image"
-);
+const contactModal = document.getElementById("contactModal");
+const openModalBtns = document.querySelectorAll(".open-modal-btn");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
 
-revealElements.forEach((el) => el.classList.add("reveal"));
-
-const revealObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("revealed");
-        observer.unobserve(entry.target);
-      }
+if (contactModal) {
+  openModalBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      contactModal.classList.add("active");
     });
-  },
-  { root: null, threshold: 0.15 }
-);
-
-revealElements.forEach((el) => revealObserver.observe(el));
-
-// =========================
-// CUSTOM STUDIO CURSOR
-// =========================
-if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-  const dot = document.createElement("div");
-  const ring = document.createElement("div");
-
-  dot.className = "custom-cursor-dot";
-  ring.className = "custom-cursor-ring";
-
-  document.body.appendChild(dot);
-  document.body.appendChild(ring);
-
-  let mouseX = 0, mouseY = 0;
-  let ringX = 0, ringY = 0;
-
-  window.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
   });
 
-  const updateRing = () => {
-    ringX += (mouseX - ringX) * 0.18;
-    ringY += (mouseY - ringY) * 0.18;
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", () => {
+      contactModal.classList.remove("active");
+    });
+  }
 
-    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-    requestAnimationFrame(updateRing);
-  };
-  requestAnimationFrame(updateRing);
-
-  const interactives = document.querySelectorAll("a, button, input");
-  interactives.forEach((item) => {
-    item.addEventListener("mouseenter", () => document.body.classList.add("hovering-link"));
-    item.addEventListener("mouseleave", () => document.body.classList.remove("hovering-link"));
+  contactModal.addEventListener("click", (e) => {
+    if (e.target === contactModal) {
+      contactModal.classList.remove("active");
+    }
   });
 }
