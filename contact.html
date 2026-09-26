@@ -15,14 +15,13 @@
     </a>
 
     <div class="nav-actions">
-      <button class="search-btn" id="searchBtn">SEARCH</button>
+      <button class="search-btn" id="searchBtn" aria-label="Search DEUS">SEARCH</button>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- NAVIGATION OVERLAY -->
   <div class="menu-overlay" id="menuOverlay">
     <div class="menu-header">
       <a href="index.html" class="logo">
@@ -30,7 +29,7 @@
       </a>
       <button class="close-btn" id="closeBtn">×</button>
     </div>
-
+    
     <nav class="menu-links">
       <a href="index.html"><span>Home</span></a>
       <a href="services.html"><span>Services</span></a>
@@ -47,7 +46,6 @@
     </div>
   </div>
 
-  <!-- CONTACT PAGE HERO -->
   <main class="contact-page">
     <p class="page-label">DEUS INDUSTRIES / ENGAGE</p>
     <h1>
@@ -59,7 +57,21 @@
     </button>
   </main>
 
-  <!-- INTERACTIVE MODAL OVERLAY -->
+  <!-- SEARCH MODAL OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-header">
+      <span>SEARCH</span>
+      <button class="search-close-btn" id="searchCloseBtn">×</button>
+    </div>
+    <div class="search-content">
+      <input type="text" id="searchInput" placeholder="Type to search..." autocomplete="off">
+      <div class="search-results" id="searchResults">
+        <p class="search-placeholder">Start typing to explore Deus Industries...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT MODAL OVERLAY -->
   <div class="contact-modal-overlay" id="contactModal">
     <div class="contact-modal-card">
       <div class="modal-card-header">
@@ -68,7 +80,8 @@
       </div>
       <p class="modal-subtitle">Tell us about your brand, software, or next deployment.</p>
 
-      <form id="projectInquiryForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <!-- Replace YOUR_FORMSPREE_ENDPOINT below with your live Formspree URL -->
+      <form id="projectInquiryForm" action="YOUR_FORMSPREE_ENDPOINT" method="POST">
         <div class="form-group">
           <label for="clientName">Full Name</label>
           <input type="text" id="clientName" name="name" placeholder="Alexander Wright" required>
