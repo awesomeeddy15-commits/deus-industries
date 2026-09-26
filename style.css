@@ -1048,6 +1048,18 @@ h1 span {
     min-height: 100vh;
   }
 
+  /* Fluid type safety & long word wrapping for mobile headings */
+  h1,
+  .inner-page h1,
+  .page-hero h1,
+  .case-hero h1,
+  .contact-page h1 {
+    font-size: clamp(38px, 10vw, 58px);
+    letter-spacing: -1.5px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
   /* Apply the same safety padding to all other inner pages */
   .inner-page,
   .page-hero,
