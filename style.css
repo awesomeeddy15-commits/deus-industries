@@ -16,6 +16,10 @@ html {
   overflow-y: scroll;
   scroll-behavior: smooth;
   background: #090909;
+  /* Adds an invisible buffer so the header never covers anchor links */
+  scroll-padding-top: 130px; 
+  /* Tells the browser to smoothly "catch" or snap to specific sections */
+  scroll-snap-type: y proximity; 
 }
 
 body {
@@ -511,12 +515,14 @@ h1 span {
    HOME HERO
 ========================= */
 .hero {
-  min-height: calc(100vh - 120px);
+  min-height: 100vh;
   padding: 180px 50px 35px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: radial-gradient(circle at 80% 30%, rgba(200, 164, 93, 0.15), transparent 35%), #090909;
+  /* Makes the scroll lock onto the top of the hero */
+  scroll-snap-align: start; 
 }
 
 .eyebrow {
@@ -554,6 +560,130 @@ h1 span {
   color: #777;
   padding-top: 22px;
   border-top: 1px solid rgba(245, 241, 232, 0.12);
+}
+
+/* =========================
+   HOMEPAGE FEATURED SECTION & SCROLL
+========================= */
+.scroll-indicator {
+  color: #777;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.scroll-indicator:hover {
+  color: #c8a45d;
+}
+
+.home-featured-section {
+  padding: 0 50px 120px;
+  background: #090909;
+  /* Makes the scroll lock onto this section when you scroll past the hero */
+  scroll-snap-align: start; 
+}
+
+.client-marquee {
+  padding: 80px 0;
+  border-top: 1px solid #292a2e;
+  border-bottom: 1px solid #292a2e;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.section-label {
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: scrollMarquee 20s linear infinite;
+  color: #333;
+  font-family: Georgia, serif;
+  font-size: clamp(35px, 6vw, 70px);
+}
+
+.marquee-track .dot {
+  color: #c8a45d;
+  margin: 0 20px;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 100px;
+}
+
+.feature-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-image {
+  background: #111116;
+  border: 1px solid #292a2e;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.feature-image p {
+  color: #444;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.feature-card:hover .feature-image {
+  transform: translateY(-8px);
+  border-color: #c8a45d;
+}
+
+.feature-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.feature-meta h3 {
+  color: #f5f1e8;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.feature-meta span {
+  color: #c8a45d;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.feature-card:hover .feature-meta h3 {
+  color: #c8a45d;
+}
+
+/* Mobile Adjustment for Featured Grid */
+@media (max-width: 600px) {
+  .home-featured-section {
+    padding: 0 24px 80px;
+  }
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================
