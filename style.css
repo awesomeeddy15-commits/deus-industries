@@ -1026,3 +1026,33 @@ h1 span {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(200, 164, 93, 0.25);
 }
+
+@media (max-width: 600px) {
+  /* Slim down the mobile navbar */
+  .navbar {
+    width: calc(100% - 32px);
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 16px;
+    border-radius: 14px;
+  }
+
+  .logo img {
+    width: 95px; 
+  }
+
+  /* Push the hero content down to clear the glass header */
+  .hero {
+    padding: 160px 24px 40px; 
+    min-height: 100vh;
+  }
+
+  /* Apply the same safety padding to all other inner pages */
+  .inner-page,
+  .page-hero,
+  .case-hero,
+  .contact-page {
+    padding-top: 150px;
+  }
+}
